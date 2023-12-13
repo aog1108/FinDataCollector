@@ -1,4 +1,5 @@
 import pymysql
+import pandas as pd
 
 
 class FinancialDBInfo:
@@ -43,6 +44,10 @@ class DBObject:
         cursor = self.db_object.cursor()
         cursor.execute(query)
         return cursor.fetchall()
+
+    def select_as_dataframe(self, query):
+        json = self.select(query)
+        return pd.DataFrame.from_records(json)
 
     def json_set_insert(self, json_set, table, data_type_mapping):
         cursor = self.db_object.cursor()
