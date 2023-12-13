@@ -10,7 +10,7 @@ def initialize_logger(logger, file_drop=True):
 
     now = datetime.now()
     if file_drop:
-        file_name = './log/' + str(now).replace(':', '_') + '_log.txt'
+        file_name = '../log/' + str(now).replace(':', '_') + '_log.txt'
         logging.basicConfig(filename=file_name, filemode='w', level=logging.INFO)
 
     formatter = logging.Formatter('%(asctime)s|%(name)s|%(levelname)s:%(message)s')
