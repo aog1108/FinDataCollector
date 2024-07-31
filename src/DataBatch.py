@@ -207,11 +207,8 @@ class BatchHandler:
                         + convert_list_to_tuple_format_string(batch_config.markets)
         before_data = self.__db_object.select_as_dataframe(select_query)
 
-        data = get_krx_listed_stock_info_with_markets(batch_config.markets)
+        data = rpa_download_krx_listed_stock_info_with_markets(batch_config.markets)
         data.columns = batch_config.listed_stocks_info_table_columns
-        data[batch_config.market_column_name] = data[batch_config.market_column_name].map(
-            batch_config.market_id_mapping
-        )
 
         merge_key = [batch_config.ticker_column_name]
         grouped_data = data_grouping(before_data, data, merge_key)
@@ -264,11 +261,12 @@ class BatchHandler:
                         + convert_list_to_tuple_format_string(batch_config.markets)
         before_data = pd.DataFrame.from_records(self.__db_object.select(select_query))
 
-        data = get_krx_listed_stock_info_with_markets(batch_config.markets)
+        # data = get_krx_listed_stock_info_with_markets(batch_config.markets)
+        data = rpa_download_krx_listed_stock_info_with_markets(batch_config.markets)
         data.columns = batch_config.listed_stocks_info_table_columns
-        data[batch_config.market_column_name] = data[batch_config.market_column_name].map(
-            batch_config.market_id_mapping
-        )
+        # data[batch_config.market_column_name] = data[batch_config.market_column_name].map(
+        #     batch_config.market_id_mapping
+        # )
 
         merge_key = [batch_config.ticker_column_name]
         grouped_data = data_grouping(before_data, data, merge_key)

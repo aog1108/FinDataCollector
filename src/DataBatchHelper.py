@@ -141,6 +141,12 @@ def get_krx_listed_stock_info_with_markets(markets):
     return data
 
 
+def rpa_download_krx_listed_stock_info_with_markets(markets):
+    data = KRX.rpa_download_krx_listed_stock_info()
+
+    return data[data['MARKET'].isin(markets)]
+
+
 def log_list_for_updated_values(compared_data, pk_column, index_for_logging, column_list):
     ret = []
     for updated_column in column_list:

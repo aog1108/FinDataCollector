@@ -106,9 +106,6 @@ class InsertDeleteKRXListedStockInfoBatchConfig:
     listed_stocks_info_table_columns = ['TICKER', 'ISIN', 'NAME', 'MARKET', 'LISTED_SHARES']
     deleted_stocks_info_table_columns = ['TICKER', 'ISIN', 'NAME', 'MARKET', 'LISTED_SHARES', 'DELETE_BATCH_DATE']
 
-    market_id_mapping = {'STK': 'KOSPI',
-                         'KSQ': 'KOSDAQ'}
-
     listed_stocks_info_data_type_mapping = {'TICKER': 'string',
                                             'ISIN': 'string',
                                             'NAME': 'string',
@@ -120,6 +117,35 @@ class InsertDeleteKRXListedStockInfoBatchConfig:
                                                'MARKET': 'string',
                                                'LISTED_SHARES': 'string',
                                                'DELETE_BATCH_DATE': 'string'}
+
+
+# class InsertDeleteKRXListedStockInfoBatchConfig:
+#     markets = ['KOSPI', 'KOSDAQ']
+#
+#     listed_stocks_info_table = 'KRX_LISTED_STOCKS_INFO'
+#     deleted_stocks_info_table = 'DELETED_KRX_LISTED_STOCKS_INFO'
+#
+#     market_column_name = 'MARKET'
+#     ticker_column_name = 'TICKER'
+#     delete_batch_date_column_name = 'DELETE_BATCH_DATE'
+#
+#     listed_stocks_info_table_columns = ['TICKER', 'ISIN', 'NAME', 'MARKET', 'LISTED_SHARES']
+#     deleted_stocks_info_table_columns = ['TICKER', 'ISIN', 'NAME', 'MARKET', 'LISTED_SHARES', 'DELETE_BATCH_DATE']
+#
+#     market_id_mapping = {'STK': 'KOSPI',
+#                          'KSQ': 'KOSDAQ'}
+#
+#     listed_stocks_info_data_type_mapping = {'TICKER': 'string',
+#                                             'ISIN': 'string',
+#                                             'NAME': 'string',
+#                                             'MARKET': 'string',
+#                                             'LISTED_SHARES': 'string'}
+#     deleted_listed_stocks_data_type_mapping = {'TICKER': 'string',
+#                                                'ISIN': 'string',
+#                                                'NAME': 'string',
+#                                                'MARKET': 'string',
+#                                                'LISTED_SHARES': 'string',
+#                                                'DELETE_BATCH_DATE': 'string'}
 
 
 class UpdateKRXListedStocksInfoBatchConfig:
